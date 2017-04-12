@@ -1,0 +1,18 @@
+{
+  "manifest_version": 2,
+
+  "name": "Chrome Based File Explorer",
+  "description": "This extension will allow access to a part of the local filesystem vis Chrome",
+  "version": "1.0",
+
+  "browser_action": {
+    "default_icon": "icon.png",
+    "name": "Click to open file explorer"
+  },
+  "background":{
+    "scripts":["scripts/openExplorer.js"]
+  },
+  "permissions": [
+    "activeTab"
+  ]
+}

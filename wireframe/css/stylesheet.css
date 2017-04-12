@@ -1,0 +1,20 @@
+@charset "utf-8";
+/* CSS Document */
+
+#container {
+	background-color: #0F6;
+	float: left;
+	height: auto;
+	width: 100%;
+}
+body {
+	background-color: #E3E3E3;
+
+}
+#exploer {
+	height: 600px;
+	width: 100%;
+}
+#top {
+	height: 80px;
+}

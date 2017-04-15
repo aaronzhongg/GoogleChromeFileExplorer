@@ -2,9 +2,12 @@ console.log("explorer.js injected");
 
 //Get existing html elements and give them classes to style them
 $("table").addClass('table-striped');
+// $("#header").addClass('content');
 $("table").wrap('<div class="explorer-right"></div>');
-$("body").append('<div class="explorer-left"></div>')
 
+$("body").prepend('<div class="explorer-left">Side Panel</div>');
+$(".explorer-right").prepend('<button onclick="listView()" type="button" class="btn btn-default">List</button><button onclick=iconView()" type="button" class="btn btn-default">Icons</button>')
+// $(".content").wrapAll("explorer");
 // console.log("DOM fully loaded and parsed");
 // var test = document.createElement("tr");
 // var testNode = document.createElement("td");

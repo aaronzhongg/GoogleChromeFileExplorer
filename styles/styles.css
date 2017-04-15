@@ -1,3 +1,26 @@
 #header {
     color: red;
 }
+
+.explorer-left {
+	min-height: 600px;
+	width: 18%;
+	float: left;
+	overflow-y: auto;
+	padding: 5px;
+	margin-top: 5px;
+	margin-right: 10px;
+	margin-left: 10px;
+	border-radius: 7px;
+	border-right-width: 1px;
+	border-right-style: solid;
+	border-right-color: #A8A8A8;
+}
+
+.explorer-right {
+	min-height: 600px;
+	width: 78%;
+	float: left;
+	overflow-y: auto;
+	overflow-x: hidden;
+}

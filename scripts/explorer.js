@@ -3,10 +3,13 @@ console.log("explorer.js injected");
 //Get existing html elements and give them classes to style them
 $("table").addClass('table-striped');
 // $("#header").addClass('content');
+$("table").wrap('<div class="explorer"></div>');
 $("table").wrap('<div class="explorer-right"></div>');
+$("h1").wrap('')
+$(".explorer").prepend('<div class="explorer-left">Side Panel</div>');
+$(".explorer-right").prepend('<button onclick="back()" type="button" class="btn btn-default"><</button><button onclick=forward()" type="button" class="btn btn-default">></button><button onclick="listView()" type="button" class="btn btn-default">List</button><button onclick=iconView()" type="button" class="btn btn-default">Icons</button>')
 
-$("body").prepend('<div class="explorer-left">Side Panel</div>');
-$(".explorer-right").prepend('<button onclick="listView()" type="button" class="btn btn-default">List</button><button onclick=iconView()" type="button" class="btn btn-default">Icons</button>')
+
 // $(".content").wrapAll("explorer");
 // console.log("DOM fully loaded and parsed");
 // var test = document.createElement("tr");

@@ -1,15 +1,31 @@
 console.log("explorer.js injected");
 
+//Import jquery into the page
+var jqueryScript = document.createElement("script");
+jqueryScript.src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js";
+$("head").append(jqueryScript);
+
+
 //Get existing html elements and give them classes to style them
 $("table").addClass('table-striped');
 // $("#header").addClass('content');
 $("table").wrap('<div class="explorer"></div>');
 $("table").wrap('<div class="explorer-right"></div>');
-$("h1").wrap('')
+$("h1").wrap('');
 $(".explorer").prepend('<div class="explorer-left">Side Panel</div>');
-$(".explorer-right").prepend('<button onclick="back()" type="button" class="btn btn-default"><</button><button onclick=forward()" type="button" class="btn btn-default">></button><button onclick="listView()" type="button" class="btn btn-default">List</button><button onclick=iconView()" type="button" class="btn btn-default">Icons</button>')
+$(".explorer-right").prepend('<button onclick="back()" type="button" class="btn btn-default"><</button><button onclick=forward()" type="button" class="btn btn-default">></button><button onclick="listView()" type="button" class="btn btn-default">List</button><button onclick=iconView()" type="button" class="btn btn-default">Icons</button>');
 
+var script = document.createElement("script");
+script.type = "text/javascript";
+script.text = "function back(){" +
+    "var backName = $(\"td:first \").children()[0].outerText;" +
+    "console.log(backName);" +
+    "if (backName == \"[parent directory]\"){" +
+        "var link =  $(\"td:first\").children()[0].href;" +
+        "window.location.href = link;}}";
 
+console.log(script);
+$("body").append(script);
 // $(".content").wrapAll("explorer");
 // console.log("DOM fully loaded and parsed");
 // var test = document.createElement("tr");

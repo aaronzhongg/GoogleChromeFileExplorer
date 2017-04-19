@@ -133,6 +133,44 @@ header h1 {
 	border-right-color: #A8A8A8;
 }
 
+summary::-webkit-details-marker {
+  display: none
+}
+#quick_access {
+	width: auto;
+	overflow: auto;
+}
+
+
+details summary::before {
+  background: url(../src/qa_right.png);
+  float: left; 
+  height: 20px;
+  width: 20px;
+  content: " ";
+}
+
+details[open] > summary::before {
+  background: url(../src/qa_down.png);
+}
+
+#exploer_left a:link{
+	color: #000;
+	text-decoration: none;
+	font-size: 16px;
+}
+
+#exploer_left a:visited{
+	color: #000;
+	text-decoration: none;
+	font-size: 16px;
+}
+
+#exploer_left a:hover{
+	color: #000;
+	text-decoration: none;
+	font-size: 16px;
+}
 
 #exploer_right {
 	min-height: 600px;

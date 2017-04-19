@@ -12,7 +12,29 @@ $("table").addClass('table-striped');
 $("table").wrap('<div class="explorer"></div>');
 $("table").wrap('<div class="explorer-right"></div>');
 $("h1").wrap('');
-$(".explorer").prepend('<div class="explorer-left">Side Panel</div>');
+
+var testList = ['']
+$(".explorer").prepend('<div class="explorer-left"><h3>Quick Access</h2></div>');
+
+var quickAccess = $(".explorer-left");
+var quickAccessList = document.createElement("ul");
+quickAccessList.className = "quick-access-list";
+quickAccess.append(quickAccessList);
+
+quickAccessList = $(".quick-access-list");
+
+var listItem = document.createElement("li");
+var itemLink = document.createElement("a");
+itemLink.setAttribute("href", "file:///");
+itemLink.text = "root directory test";
+listItem.appendChild(itemLink);
+
+quickAccessList.append(listItem);
+
+// var listItem = document.createElement("li").appendTo(quickAccessList);
+// var listLink = document.createElement("a").appendTo(listItem);
+// listLink.text = "test item";
+
 $(".explorer-right").prepend('<button onclick="javascript:window.history.back()" type="button" class="btn btn-default"><</button><button onclick="javascript:window.history.forward()" type="button" class="btn btn-default">></button><button onclick="listView()" type="button" class="btn btn-default">List</button><button onclick=iconView()" type="button" class="btn btn-default">Icons</button>');
 
 //This was the implementation of the back button but a better way was found

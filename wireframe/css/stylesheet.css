@@ -41,12 +41,13 @@ h1 {
 }
 
 header h1 {
-	font-family: 'Open Sans';
+	font-family: "Open Sans";
 	font-size: 30px;
 	text-shadow: 1px 2px black;
 	margin: 0 1em 0 0;
-	color: #666;
+	color: #ffffff;
 	-webkit-flex: 1 0 auto;
+	-webkit-text-stroke: 1px #9D9D9D;
 }
 
 #container {
@@ -74,7 +75,9 @@ header h1 {
 	padding-right: 3px;
 	padding-bottom: 3px;
 	padding-left: 5px;
-	height: 40px;
+	min-height: 40px;
+	width: 100%
+	overflow: auto;
 }
 
 #top {
@@ -108,9 +111,9 @@ header h1 {
 }
 #exploer {
 	background-color: ;
-	min-height: 620px;
+	min-height: 600px;
 	width: 100%;
-	background-color: #6CC;
+	background-color:#eeeeee;
 	background: -webkit-linear-gradient(#fff 80%, #eee);
 	border: 1px solid #eee;
 	border-radius: 7px;
@@ -123,14 +126,16 @@ header h1 {
 	width: 18%;
 	float: left;
 	overflow-y: auto;
-	padding: 5px;
-	margin-top: 5px;
 	margin-right: 10px;
-	margin-left: 10px;
 	border-radius: 7px;
 	border-right-width: 1px;
 	border-right-style: solid;
 	border-right-color: #A8A8A8;
+	background-color: #9CDEDE;
+	padding-top: 15px;
+	padding-right: 5px;
+	padding-bottom: 5px;
+	padding-left: 5px;
 }
 
 summary::-webkit-details-marker {
@@ -174,8 +179,9 @@ details[open] > summary::before {
 
 #exploer_right {
 	min-height: 600px;
-	width: 78%;
+	min-width: 78%;
 	float: left;
+	background-color:transparent;
 	overflow-y: auto;
 	overflow-x: hidden;
 }

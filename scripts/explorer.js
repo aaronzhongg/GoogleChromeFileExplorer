@@ -1,5 +1,17 @@
 console.log("explorer.js injected");
 
+//Import jquery into the page
+var jqueryScript = document.createElement("script");
+jqueryScript.src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js";
+$("head").append(jqueryScript);
+
+//Solution for preventing the extension from styling files
+//var fileExtension = window.location.href.split(".").pop();
+//if(fileExtension.length != 3 && fileExtension.length != 4){
+//    console.log("this is not a file");
+//}
+//console.log(fileExtension);
+
 //Get existing html elements and give them classes to style them
 $("table").addClass('table-striped');
 // $("#header").addClass('content');

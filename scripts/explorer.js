@@ -21,6 +21,29 @@ $("h1").wrap('')
 $(".explorer").prepend('<div class="explorer-left">Side Panel</div>');
 $(".explorer-right").prepend('<button onclick="back()" type="button" class="btn btn-default"><</button><button onclick=forward()" type="button" class="btn btn-default">></button><button onclick="listView()" type="button" class="btn btn-default">List</button><button onclick=iconView()" type="button" class="btn btn-default">Icons</button>')
 
+//Adding icons to file entries based on their file extension
+var pdfImgUrl = chrome.extension.getURL("styles/img/pdf.png");
+var txtImgUrl = chrome.extension.getURL("styles/img/txt.png");
+var musicImgUrl = chrome.extension.getURL("styles/img/mp3.png");
+var imgImgUrl = chrome.extension.getURL("styles/img/img.png");
+$("a.file").each(function(){
+    $this = $(this);
+    var fileExt = $this[0].href.split(".").pop();
+    if (fileExt == "pdf"){  //pdf
+        $this.removeClass("file");
+        $this.css("background", "url(" + pdfImgUrl + ")");
+    }else if(fileExt == "txt"){
+        $this.removeClass("file");
+        $this.css("background", "url(" + txtImgUrl + ")");
+    }else if(fileExt == "mp3"){
+        $this.removeClass("file");
+        $this.css("background", "url(" + musicImgUrl + ")");
+    }else if(fileExt == "png" || fileExt == "jpg" || fileExt == "bmp"){
+        $this.removeClass("file");
+        $this.css("background", "url(" + imgImgUrl + ")");
+    }
+});
+
 
 // $(".content").wrapAll("explorer");
 // console.log("DOM fully loaded and parsed");

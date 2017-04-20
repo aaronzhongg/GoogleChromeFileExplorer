@@ -19,5 +19,11 @@
   "permissions": [
     "activeTab",
     "file:///*"
+  ],
+  "web_accessible_resources": [
+    "styles/img/pdf.png",
+    "styles/img/txt.png",
+    "styles/img/mp3.png",
+    "styles/img/img.png"
   ]
 }

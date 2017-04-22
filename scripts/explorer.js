@@ -1,9 +1,13 @@
 console.log("explorer.js injected");
-
 //Import jquery into the page
 var jqueryScript = document.createElement("script");
 jqueryScript.src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js";
 $("head").append(jqueryScript);
+
+//Import dragdrop script into the page
+var dragDropScript = document.createElement("script");
+dragDropScript.src = chrome.extension.getURL("scripts/dragdrop.js");
+$("head").append(dragDropScript);
 
 //Solution for preventing the extension from styling files
 //var fileExtension = window.location.href.split(".").pop();
@@ -14,31 +18,31 @@ $("head").append(jqueryScript);
 
 //Get existing html elements and give them classes to style them
 $("table").addClass('table-striped');
-// $("#header").addClass('content');
 $("table").wrap('<div class="explorer"></div>');
 $("table").wrap('<div class="explorer-right"></div>');
+$(".explorer").prepend('<div class="explorer-left" ondrop="drop(event)" ondragover="allowDrop(event)"><h3>Quick Access</h2></div>');
 
-var testList = ['']
-$(".explorer").prepend('<div class="explorer-left"><h3>Quick Access</h2></div>');
-
+//side panel
 var quickAccess = $(".explorer-left");
 var quickAccessList = document.createElement("ul");
 quickAccessList.className = "quick-access-list";
 quickAccess.append(quickAccessList);
 
-quickAccessList = $(".quick-access-list");
+// Check if any items saved in quick access and update list
+if (localStorage.quickAccessJson != null) {
+    var items = JSON.parse(localStorage.quickAccessJson);
 
-var listItem = document.createElement("li");
-var itemLink = document.createElement("a");
-itemLink.setAttribute("href", "file:///");
-itemLink.text = "root directory test";
-listItem.appendChild(itemLink);
+    items.forEach(function(element) {
+        var listItem = document.createElement("li");
+        var itemLink = document.createElement("a");
+        itemLink.setAttribute("href", element);
 
-quickAccessList.append(listItem);
-
-// var listItem = document.createElement("li").appendTo(quickAccessList);
-// var listLink = document.createElement("a").appendTo(listItem);
-// listLink.text = "test item";
+        var dirName = element.split("/");
+        itemLink.text = dirName[dirName.length - 2];
+        listItem.appendChild(itemLink);
+        quickAccessList.append(listItem);
+    }, this);
+}
 
 $(".explorer-right").prepend('<button onclick="javascript:window.history.back()" type="button" class="btn btn-default"><</button><button onclick="javascript:window.history.forward()" type="button" class="btn btn-default">></button><button onclick="listView()" type="button" class="btn btn-default">List</button><button onclick=iconView()" type="button" class="btn btn-default">Icons</button>');
 
@@ -64,20 +68,3 @@ $("a.file").each(function(){
         $this.css("background", "url(" + imgImgUrl + ")");
     }
 });
-
-
-// $(".content").wrapAll("explorer");
-// console.log("DOM fully loaded and parsed");
-// var test = document.createElement("tr");
-// var testNode = document.createElement("td");
-// testNode.dataset.value = "TESTERINO";
-// test.appendChild(testNode);
-// var testNode1 = document.createElement("td");
-// testNode1.dataset.value = "TESTERINO";
-// test.appendChild(testNode1);
-// var testNode2 = document.createElement("td");
-// testNode2.dataset.value = "TESTERINO";
-// test.appendChild(testNode2);
-// console.log(test);
-// var table = document.getElementById("tbody");
-// table.appendChild(test);

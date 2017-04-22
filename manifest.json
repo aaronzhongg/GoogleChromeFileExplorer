@@ -24,6 +24,7 @@
     "styles/img/pdf.png",
     "styles/img/txt.png",
     "styles/img/mp3.png",
-    "styles/img/img.png"
+    "styles/img/img.png",
+    "scripts/dragdrop.js"
   ]
 }

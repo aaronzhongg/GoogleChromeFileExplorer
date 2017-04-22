@@ -5,13 +5,18 @@ var jqueryScript = document.createElement("script");
 jqueryScript.src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js";
 $("head").append(jqueryScript);
 
+//Solution for preventing the extension from styling files
+//var fileExtension = window.location.href.split(".").pop();
+//if(fileExtension.length != 3 && fileExtension.length != 4){
+//    console.log("this is not a file");
+//}
+//console.log(fileExtension);
 
 //Get existing html elements and give them classes to style them
 $("table").addClass('table-striped');
 // $("#header").addClass('content');
 $("table").wrap('<div class="explorer"></div>');
 $("table").wrap('<div class="explorer-right"></div>');
-$("h1").wrap('');
 
 var testList = ['']
 $(".explorer").prepend('<div class="explorer-left"><h3>Quick Access</h2></div>');
@@ -37,18 +42,28 @@ quickAccessList.append(listItem);
 
 $(".explorer-right").prepend('<button onclick="javascript:window.history.back()" type="button" class="btn btn-default"><</button><button onclick="javascript:window.history.forward()" type="button" class="btn btn-default">></button><button onclick="listView()" type="button" class="btn btn-default">List</button><button onclick=iconView()" type="button" class="btn btn-default">Icons</button>');
 
-//This was the implementation of the back button but a better way was found
-//var script = document.createElement("script");
-//script.type = "text/javascript";
-//script.text = "function back(){" +
-//    "var backName = $(\"td:first \").children()[0].outerText;" +
-//    "console.log(backName);" +
-//    "if (backName == \"[parent directory]\"){" +
-//        "var link =  $(\"td:first\").children()[0].href;" +
-//        "window.location.href = link;}}";
-//
-//console.log(script);
-//$("body").append(script);
+//Adding icons to file entries based on their file extension
+var pdfImgUrl = chrome.extension.getURL("styles/img/pdf.png");
+var txtImgUrl = chrome.extension.getURL("styles/img/txt.png");
+var musicImgUrl = chrome.extension.getURL("styles/img/mp3.png");
+var imgImgUrl = chrome.extension.getURL("styles/img/img.png");
+$("a.file").each(function(){
+    $this = $(this);
+    var fileExt = $this[0].href.split(".").pop();
+    if (fileExt == "pdf"){  //pdf
+        $this.removeClass("file");
+        $this.css("background", "url(" + pdfImgUrl + ")");
+    }else if(fileExt == "txt"){
+        $this.removeClass("file");
+        $this.css("background", "url(" + txtImgUrl + ")");
+    }else if(fileExt == "mp3"){
+        $this.removeClass("file");
+        $this.css("background", "url(" + musicImgUrl + ")");
+    }else if(fileExt == "png" || fileExt == "jpg" || fileExt == "bmp"){
+        $this.removeClass("file");
+        $this.css("background", "url(" + imgImgUrl + ")");
+    }
+});
 
 
 // $(".content").wrapAll("explorer");

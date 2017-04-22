@@ -31,8 +31,47 @@
 	overflow-x: hidden;
 }
 
+.detailsColumn {
+	text-align:left !important; /** overwrite useragentstylesheet **/
+}
+
 body {
 	background-color: #D7D7D7 !important;
+}
+
+#myTable {
+	margin-top:10px;
+}
+
+.hide {
+	display: none !important;
+}
+
+.flex-container {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	align-content: flex-start;
+}
+
+.flex-item {
+	align-self: flex-start;
+	max-width: 100px;
+	margin: 15px;
+	overflow-x: wrap;
+	min-width: 0;
+
+}
+
+.flex-text {
+	max-width: 100px;
+	word-wrap: break-word;
+}
+
+.icon-img {
+	max-width: 100px;
+	height: auto;
 }
 
 /*#explorer {

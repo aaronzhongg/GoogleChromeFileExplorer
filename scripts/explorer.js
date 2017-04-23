@@ -27,8 +27,8 @@ $("h1").wrap('')
 $(".explorer").prepend('<div class="explorer-left">Side Panel</div>');
 
 //initialise all action buttons {sort, icon, list , etc)}
-var buttonLeftArrow = '<button onclick="back()" type="button" class="btn btn-default"> < </button>';
-var buttonRightArrow = '<button onclick=forward()" type="button" class="btn btn-default"> > </button>';
+var buttonLeftArrow = '<button onclick="javascript: window.history.back()" type="button" class="btn btn-default"> < </button>';
+var buttonRightArrow = '<button onclick="javascript: window.history.forward()" type="button" class="btn btn-default"> > </button>';
 var buttonList = '<button id="list-button" type="button" class="btn btn-default">List</button>';
 var buttonIcons = '<button id="icon-button" type="button" class="btn btn-default">Icons</button>';
 

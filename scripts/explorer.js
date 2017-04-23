@@ -52,10 +52,13 @@ var imgImg256Url = chrome.extension.getURL("styles/img/img-icon.png");
 var upFolderUrl = chrome.extension.getURL("styles/img/up-folder-icon.png");
 var pdfImg256Url = chrome.extension.getURL("styles/img/pdf-icon.png");
 
+//Inserting icons for list view based on file type
 $("a.file").each(function(){
     $this = $(this);
     var fileExt = $this[0].href.split(".").pop();
-    if (fileExt == "pdf"){  //pdf
+
+    //First remove existing background then replace with the icon
+    if (fileExt == "pdf"){
         $this.removeClass("file");
         $this.css("background", "url(" + pdfImgUrl + ")");
     }else if(fileExt == "txt"){

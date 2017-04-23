@@ -20,7 +20,7 @@ $("head").append(dragDropScript);
 $("table").addClass('table-striped');
 $("table").wrap('<div class="explorer"></div>');
 $("table").wrap('<div class="explorer-right"></div>');
-$(".explorer").prepend('<div class="explorer-left" ondrop="drop(event)" ondragover="allowDrop(event)"><h3>Quick Access</h2></div>');
+$(".explorer").prepend('<div class="explorer-left" ondrop="drop(event)" ondragover="allowDrop(event)" ondragleave="removeItem(event)"><h3>Quick Access</h2></div>');
 
 //side panel
 var quickAccess = $(".explorer-left");
@@ -39,6 +39,7 @@ if (localStorage.quickAccessJson != null) {
 
         var dirName = element.split("/");
         itemLink.text = dirName[dirName.length - 2];
+        itemLink.id = element;
         listItem.appendChild(itemLink);
         quickAccessList.append(listItem);
     }, this);

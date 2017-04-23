@@ -126,8 +126,10 @@ $("#icon-button").click(function(){
                     break;
                 case "music":
                     icon += "<img class='icon-img' src='" + mp3ImgUrl +"'/>";
+                    break;
                 case "pdf":
                     icon += "<img class='icon-img' src='" + pdfImg256Url +"'/>";
+                    break;
                 case "parent_directory":
                     icon += "<img class='icon-img' src='" + upFolderUrl +"'/>";
                     break;

@@ -24,6 +24,12 @@
     "styles/img/pdf.png",
     "styles/img/txt.png",
     "styles/img/mp3.png",
-    "styles/img/img.png"
+    "styles/img/img.png",
+    "styles/img/folder-icon.png",
+    "styles/img/blank-icon.png",
+    "styles/img/img-icon.png",
+    "styles/img/mp3-icon.png",
+    "styles/img/pdf-icon.png",
+    "styles/img/up-folder-icon.png"
   ]
 }

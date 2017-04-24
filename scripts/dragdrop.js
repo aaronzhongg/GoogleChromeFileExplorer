@@ -37,7 +37,14 @@ function refreshQuickAccess() {
             itemLink.setAttribute("href", element);
 
             var dirName = element.split("/");
-            itemLink.text = dirName[dirName.length - 2];
+            if(dirName[dirName.length-1].length == 0){
+            //it is a folder
+                itemLink.text = decodeURIComponent(dirName[dirName.length - 2]);
+             }else{
+            //it is a file
+                itemLink.text = decodeURIComponent(dirName[dirName.length - 1]);
+            }
+
             itemLink.id = element;
             // itemLink.setAttribute("ondragstart", "removeItem(event)");
             // itemLink.setAttribute("ondrag", "showRemove()");

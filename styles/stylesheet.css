@@ -19,6 +19,27 @@ h1 {
 	font-size: 24px;
 }
 
+.icon {
+	height: 140px;
+	width: 125px;
+	padding: 5px;
+	margin: 10px;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+	float: left;
+	text-align: center;
+}
+.list {
+	float: left;
+	width: 80%;
+	padding: 5px;
+	margin-left: 10px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
 header h1 {
 	font-family: "Open Sans";
 	font-size: 30px;
@@ -100,7 +121,7 @@ header h1 {
 	overflow: hidden;
 	box-shadow: 5px 5px 3px #A0A0A0;
 }
-#exploer_left {
+.explorer-left {
 	min-height: 600px;
 	width: 18%;
 	float: left;
@@ -138,25 +159,25 @@ details[open] > summary::before {
   background: url(../src/qa_down.png);
 }
 
-#exploer_left a:link{
+.explorer-left a:link{
 	color: #000;
 	text-decoration: none;
 	font-size: 16px;
 }
 
-#exploer_left a:visited{
+.explorer-left a:visited{
 	color: #000;
 	text-decoration: none;
 	font-size: 16px;
 }
 
-#exploer_left a:hover{
+.explorer-left a:hover{
 	color: #000;
 	text-decoration: none;
 	font-size: 16px;
 }
 
-#exploer_right {
+.explorer-right {
 	min-height: 600px;
 	min-width: 78%;
 	float: left;
@@ -165,26 +186,26 @@ details[open] > summary::before {
 	overflow-x: hidden;
 }
 
-#exploer_right header{
+.explorer-right header{
 	padding-right: 5px;
 	text-align: right;
 }
 
-#exploer_right a:link{
+.explorer-right a:link{
 	color: #000;
 	text-decoration: none;
 	font-family: Verdana, Geneva, sans-serif;
 	font-size: 18px;
 }
 
-#exploer_right a:visited{
+.explorer-right a:visited{
 	color: #000;
 	text-decoration: none;
 	font-family: Verdana, Geneva, sans-serif;
 	font-size: 18px;
 }
 
-#exploer_right a:hover{
+.explorer-right a:hover{
 	color: #000;
 	text-decoration: underline;
 	font-family: Verdana, Geneva, sans-serif;

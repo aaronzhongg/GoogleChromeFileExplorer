@@ -27,7 +27,6 @@ $("table").attr("id", "myTable"); //change name to something meaningful
 $("table").wrap('<div class="explorer"></div>');
 $("table").wrap('<div class="explorer-right"></div>');
 $("h1").wrap('');
-$(".explorer").prepend('<div class="explorer-left">Side Panel</div>');
 $(".explorer").wrap('<div class="exploer-container"></div>');
 $(".exploer-container").wrap('<div class="container"></div>');
 $("#header").remove();
@@ -103,13 +102,18 @@ if (localStorage.quickAccessJson != null) {
     }, this);
 }
 
-//initialise all action buttons {sort, icon, list , etc)}
-var buttonLeftArrow = '<button onclick="javascript: window.history.back()" type="button" class="btn btn-default"> < </button>';
-var buttonRightArrow = '<button onclick="javascript: window.history.forward()" type="button" class="btn btn-default"> > </button>';
-var buttonList = '<button id="list-button" type="button" class="btn btn-default">List</button>';
-var buttonIcons = '<button id="icon-button" type="button" class="btn btn-default">Icons</button>';
+//Get button icon urls
+var backwardImgUrl = chrome.extension.getURL("styles/img/backward.png");
+var forwardImgUrl = chrome.extension.getURL("styles/img/forward.png");
+var listImgUrl = chrome.extension.getURL("styles/img/list.png");
+var iconImgUrl = chrome.extension.getURL("styles/img/icon.png");
 
-var sortButtons = "<button id='namesort-button' type='button' class='btn btn-default'> Name Sort </button><button id='sizesort-button' type='button' class='btn btn-default'> Size Sort </button><button id='datesort-button' type='button' class='btn btn-default'> Date Sort </button>";
+//initialise all action buttons {sort, icon, list , etc)}
+var buttonLeftArrow = '<button id="backward-button" onclick="javascript: window.history.back()" type="button" class="btn"> <img src= "'+ backwardImgUrl +'" width="24" height="24" alt="backward" /></button>';
+var buttonRightArrow = '<button id="forward-button" onclick="javascript: window.history.forward()" type="button" class="btn">  <img src= "'+ forwardImgUrl +'" width="24" height="24" alt="backward" /> </button>';
+var buttonList = '<button id="list-button" type="button" class="btn"><img src= "'+ listImgUrl +'" width="24" height="24" alt="backward" /></button>';
+var buttonIcons = '<button id="icon-button" type="button" class="btn"><img src= "'+ iconImgUrl +'" width="24" height="24" alt="backward" /></button>';
+var sortButtons = "<button id='namesort-button' type='button' class='btn'> Name </button><button id='sizesort-button' type='button' class='btn'> Size </button><button id='datesort-button' type='button' class='btn'> Date </button>";
 $(".explorer-right").prepend(buttonLeftArrow + buttonRightArrow + buttonList + buttonIcons + "   Sort By: " + sortButtons);
 
 //Adding icons to file entries based on their file extension
@@ -151,6 +155,8 @@ $("a.file").each(function(){
 //function for list view. Uses session storage to persist view type through navigation. (session storage only persist until user closes the tab)
 //The function hides list view when icon view is selected and vice versa. 
 $("#list-button").click(function(){
+	$("#list-button").css({"background-color": "#e7e7e7 "});
+	$("#icon-button").css({"background-color": ""});
     console.log("list view");
     sessionStorage.viewType = "list";
     
@@ -167,6 +173,8 @@ $("#list-button").click(function(){
 //hides list view and display icon view. 
 //icon view is displayed by collecting table data from list view and converting it into document objects. The objects are then translanted into icon views. 
 $("#icon-button").click(function(){
+	$("#icon-button").css({"background-color": "#e7e7e7 "});
+	$("#list-button").css({"background-color": ""});
     console.log("icon view");
     sessionStorage.viewType = "icon";
     //hide table view
@@ -221,7 +229,6 @@ $("#icon-button").click(function(){
     updateString += "</div>";
     console.log(updateString);
     $("#icon-container").html(updateString);
-    
 });
 
 //uses the default javascript:tablesort function. This act as a middle-man to silent-click the respective theader.

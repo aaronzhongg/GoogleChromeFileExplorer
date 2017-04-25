@@ -3,6 +3,17 @@
 body {
 	background-color: #D7D7D7 !important;
 }
+
+header h1 {
+	font-family: "Open Sans";
+	font-size: 30px;
+	text-shadow: 1px 2px black;
+	margin: 0 1em 0 0;
+	color: #ffffff;
+	-webkit-flex: 1 0 auto;
+	-webkit-text-stroke: 1px #9D9D9D;
+}
+
 .container {
 	float: left;
 	width: 80% !important;
@@ -11,6 +22,14 @@ body {
 	margin-bottom: 15px;
 	margin-left: 10%!important;
 	
+}
+
+.container header{
+	height: 50px;
+	padding-top: 5px;
+	padding-right: 5px;
+	padding-bottom: 5px;
+	padding-left: 5px;	
 }
 
 .exploer-container {

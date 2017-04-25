@@ -16,6 +16,8 @@ $(".explorer").prepend('<div class="explorer-left">Side Panel</div>');
 $(".explorer-right").prepend('<button onclick="javascript:window.history.back()" type="button" class="btn btn-default"><</button><button onclick="javascript:window.history.forward()" type="button" class="btn btn-default">></button><button onclick="listView()" type="button" class="btn btn-default">List</button><button onclick=iconView()" type="button" class="btn btn-default">Icons</button>');
 $(".explorer").wrap('<div class="exploer-container"></div>');
 $(".exploer-container").wrap('<div class="container"></div>');
+$("#header").remove();
+$(".container").prepend('<header><h1><b>Chrome File Exploer</b></h1></header>')
 //This was the implementation of the back button but a better way was found
 //var script = document.createElement("script");
 //script.type = "text/javascript";

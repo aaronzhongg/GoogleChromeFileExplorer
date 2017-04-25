@@ -3,12 +3,14 @@ function allowDrop(ev) {
 }
 
 function drag(ev) {
+    console.log(ev.target.id);
     ev.dataTransfer.setData("text", ev.target.id);
 }
 
 function drop(ev) {
     ev.preventDefault();
     var data = ev.dataTransfer.getData("text");
+    console.log(data);
     var quickAccessItems;
 
     if (localStorage.quickAccessJson != null) {
@@ -25,6 +27,7 @@ function drop(ev) {
     }
 }
 
+// Re-populate items in quick access panel after adding or remove items
 function refreshQuickAccess() {
     var quickAccessList = $(".quick-access-list");
     quickAccessList.empty();
@@ -32,31 +35,32 @@ function refreshQuickAccess() {
         var items = JSON.parse(localStorage.quickAccessJson);
 
         items.forEach(function(element) {
-            var listItem = document.createElement("li");
-            var itemLink = document.createElement("a");
-            itemLink.setAttribute("href", element);
+            var listItem = document.createElement("a");
+            listItem.className = "list-group-item";
+            listItem.setAttribute("href", element);
+            listItem.setAttribute("ondragstart", "showRemove()");
+            listItem.setAttribute("ondragend", "hideRemove()");
 
             var dirName = element.split("/");
             if(dirName[dirName.length-1].length == 0){
-            //it is a folder
-                itemLink.text = decodeURIComponent(dirName[dirName.length - 2]);
-             }else{
-            //it is a file
-                itemLink.text = decodeURIComponent(dirName[dirName.length - 1]);
+                //it is a folder
+                listItem.text = decodeURIComponent(dirName[dirName.length - 2]);
+            }else{
+                //it is a file
+                listItem.text = decodeURIComponent(dirName[dirName.length - 1]);
             }
-
-            itemLink.id = element;
-            // itemLink.setAttribute("ondragstart", "removeItem(event)");
-            // itemLink.setAttribute("ondrag", "showRemove()");
-            listItem.appendChild(itemLink);
+            
+            listItem.id = element;
             quickAccessList.append(listItem);
         }, this);
     }
 }
 
+// Remove item from quick access panel
 function removeItem(ev) {
-    // ev.preventDefault();
-    var data = ev.target.id;
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData("text");
+    console.log(data);
     var quickAccessItems;
     if (localStorage.quickAccessJson != null) {
         quickAccessItems = JSON.parse(localStorage.quickAccessJson);
@@ -73,4 +77,13 @@ function removeItem(ev) {
             refreshQuickAccess();
         }
     }
+}
+
+// Hide and show quick access remove panel 
+function showRemove() {
+    $('.remove-panel').show();
+}
+
+function hideRemove() {
+    $('.remove-panel').hide();
 }

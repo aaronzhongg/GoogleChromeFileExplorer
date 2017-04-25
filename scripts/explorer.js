@@ -28,33 +28,42 @@ $("table").wrap('<div class="explorer"></div>');
 $("table").wrap('<div class="explorer-right"></div>');
 $("table").wrap('<div id="main-container"></div>');
 $("#main-container").append("<div id='icon-container'> </div>");
-$(".explorer").prepend('<div class="explorer-left" ondrop="drop(event)" ondragover="allowDrop(event)" ondragleave="removeItem(event)"><h3>Quick Access</h2></div>');
+$(".explorer").prepend('<div class="explorer-left"></div>');
 
+var quickAccessPanel = '<div class="quick-access-panel" ondrop="drop(event)" ondragover="allowDrop(event)"><h3>Quick Access</h2> </div>';
+var removePanel = '<div class="remove-panel" ondrop="removeItem(event)" ondragover="allowDrop(event)">REMOVE FROM QUICK ACCESS</div>'
+ 
 //side panel
-var quickAccess = $(".explorer-left");
-var quickAccessList = document.createElement("ul");
-quickAccessList.className = "quick-access-list";
-quickAccess.append(quickAccessList);
+var explorerLeft = $(".explorer-left");
+explorerLeft.append(quickAccessPanel);
+explorerLeft.append(removePanel);
 
-// Check if any items saved in quick access and update list
+quickAccessPanel = $('.quick-access-panel');
+var quickAccessList = document.createElement("div");
+quickAccessList.className = "list-group";
+quickAccessList.className = "quick-access-list";
+quickAccessPanel.append(quickAccessList);
+
+// Check if any items saved in quick access and populate list
 if (localStorage.quickAccessJson != null) {
     var items = JSON.parse(localStorage.quickAccessJson);
 
     items.forEach(function(element) {
-        var listItem = document.createElement("li");
-        var itemLink = document.createElement("a");
-        itemLink.setAttribute("href", element);
+        var listItem = document.createElement("a");
+        listItem.className = "list-group-item";
+        listItem.setAttribute("href", element);
+        listItem.setAttribute("ondragstart", "showRemove()");
+        listItem.setAttribute("ondragend", "hideRemove()");
 
         var dirName = element.split("/");
         if(dirName[dirName.length-1].length == 0){
             //it is a folder
-            itemLink.text = decodeURIComponent(dirName[dirName.length - 2]);
+            listItem.text = decodeURIComponent(dirName[dirName.length - 2]);
         }else{
             //it is a file
-            itemLink.text = decodeURIComponent(dirName[dirName.length - 1]);
+            listItem.text = decodeURIComponent(dirName[dirName.length - 1]);
         }
-        itemLink.id = element;
-        listItem.appendChild(itemLink);
+        listItem.id = element;
         quickAccessList.append(listItem);
     }, this);
 }

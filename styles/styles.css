@@ -74,6 +74,20 @@ body {
 	height: auto;
 }
 
+.quick-access-panel {
+	min-height: 300px;
+	width: 100%;
+}
+
+.remove-panel {
+	border: 1px dashed black;
+	background: #E03C31; 
+	color: white;
+	padding: 25px; 
+	margin: 25px 0; 
+	display: none;
+	text-align: center;
+}
 /*#explorer {
 	background-color: white;
 	min-height: 620px;

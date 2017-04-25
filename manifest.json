@@ -19,5 +19,18 @@
   "permissions": [
     "activeTab",
     "file:///*"
+  ],
+  "web_accessible_resources": [
+    "styles/img/pdf.png",
+    "styles/img/txt.png",
+    "styles/img/mp3.png",
+    "styles/img/img.png",
+    "scripts/dragdrop.js",
+    "styles/img/folder-icon.png",
+    "styles/img/blank-icon.png",
+    "styles/img/img-icon.png",
+    "styles/img/mp3-icon.png",
+    "styles/img/pdf-icon.png",
+    "styles/img/up-folder-icon.png"
   ]
 }

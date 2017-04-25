@@ -9,7 +9,7 @@
     { 
       "matches": ["file:///*"],
       "js": [ "scripts/jquery-3.2.1.min.js", "scripts/explorer.js", "scripts/bootstrap.min.js"],
-      "css": ["styles/styles.css", "styles/bootstrap.min.css"]
+      "css": ["styles/stylesheet.css", "styles/bootstrap.min.css"]
     }
   ],
   "browser_action": {

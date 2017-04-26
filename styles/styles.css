@@ -9,6 +9,7 @@
 }
 
 .explorer-left {
+    position: fixed;
 	min-height: 600px;
 	width: 18%;
 	float: left;
@@ -26,6 +27,7 @@
 .explorer-right {
 	min-height: 600px;
 	width: 78%;
+	margin-left: 20%;
 	float: left;
 	overflow-y: auto;
 	overflow-x: hidden;

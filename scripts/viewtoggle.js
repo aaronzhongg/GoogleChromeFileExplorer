@@ -1,153 +1,8 @@
-console.log("explorer.js injected");
-
-console.log("initialising document array object");
-var documentArrayObject = [];
-
-//Import jquery into the page
-var jqueryScript = document.createElement("script");
-jqueryScript.src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js";
-$("head").append(jqueryScript);
-
-//Import dragdrop script into the page
-var dragDropScript = document.createElement("script");
-dragDropScript.src = chrome.extension.getURL("scripts/dragdrop.js");
-$("head").append(dragDropScript);
-
-//Solution for preventing the extension from styling files
-//var fileExtension = window.location.href.split(".").pop();
-//if(fileExtension.length != 3 && fileExtension.length != 4){
-//    console.log("this is not a file");
-//}
-//console.log(fileExtension);
-
-$("table").addClass('table table-condensed');
-$("table").attr("id", "myTable"); //change name to something meaningful
-
-// $("#header").addClass('content');
-$("table").wrap('<div class="explorer"></div>');
-$("table").wrap('<div class="explorer-right"></div>');
-<<<<<<< HEAD
-$("h1").wrap('');
-$(".explorer").prepend('<div class="explorer-left">Side Panel</div>');
-$(".explorer-right").prepend('<button onclick="javascript:window.history.back()" type="button" class="btn btn-default"><</button><button onclick="javascript:window.history.forward()" type="button" class="btn btn-default">></button><button onclick="listView()" type="button" class="btn btn-default">List</button><button onclick=iconView()" type="button" class="btn btn-default">Icons</button>');
-$(".explorer").wrap('<div class="exploer-container"></div>');
-$(".exploer-container").wrap('<div class="container"></div>');
-$("#header").remove();
-$(".container").prepend('<header><h1><b>Chrome File Exploer</b></h1></header>')
-//This was the implementation of the back button but a better way was found
-//var script = document.createElement("script");
-//script.type = "text/javascript";
-//script.text = "function back(){" +
-//    "var backName = $(\"td:first \").children()[0].outerText;" +
-//    "console.log(backName);" +
-//    "if (backName == \"[parent directory]\"){" +
-//        "var link =  $(\"td:first\").children()[0].href;" +
-//        "window.location.href = link;}}";
-//
-//console.log(script);
-//$("body").append(script);
-
-
-// $(".content").wrapAll("explorer");
-// console.log("DOM fully loaded and parsed");
-// var test = document.createElement("tr");
-// var testNode = document.createElement("td");
-// testNode.dataset.value = "TESTERINO";
-// test.appendChild(testNode);
-// var testNode1 = document.createElement("td");
-// testNode1.dataset.value = "TESTERINO";
-// test.appendChild(testNode1);
-// var testNode2 = document.createElement("td");
-// testNode2.dataset.value = "TESTERINO";
-// test.appendChild(testNode2);
-// console.log(test);
-// var table = document.getElementById("tbody");
-// table.appendChild(test);
-||||||| merged common ancestors
-$("h1").wrap('');
-$(".explorer").prepend('<div class="explorer-left">Side Panel</div>');
-$(".explorer-right").prepend('<button onclick="javascript:window.history.back()" type="button" class="btn btn-default"><</button><button onclick="javascript:window.history.forward()" type="button" class="btn btn-default">></button><button onclick="listView()" type="button" class="btn btn-default">List</button><button onclick=iconView()" type="button" class="btn btn-default">Icons</button>');
-
-//This was the implementation of the back button but a better way was found
-//var script = document.createElement("script");
-//script.type = "text/javascript";
-//script.text = "function back(){" +
-//    "var backName = $(\"td:first \").children()[0].outerText;" +
-//    "console.log(backName);" +
-//    "if (backName == \"[parent directory]\"){" +
-//        "var link =  $(\"td:first\").children()[0].href;" +
-//        "window.location.href = link;}}";
-//
-//console.log(script);
-//$("body").append(script);
-
-
-// $(".content").wrapAll("explorer");
-// console.log("DOM fully loaded and parsed");
-// var test = document.createElement("tr");
-// var testNode = document.createElement("td");
-// testNode.dataset.value = "TESTERINO";
-// test.appendChild(testNode);
-// var testNode1 = document.createElement("td");
-// testNode1.dataset.value = "TESTERINO";
-// test.appendChild(testNode1);
-// var testNode2 = document.createElement("td");
-// testNode2.dataset.value = "TESTERINO";
-// test.appendChild(testNode2);
-// console.log(test);
-// var table = document.getElementById("tbody");
-// table.appendChild(test);
-=======
-$("table").wrap('<div id="main-container"></div>');
-$("#main-container").append("<div id='icon-container'> </div>");
-$(".explorer").prepend('<div class="explorer-left"></div>');
-
-var quickAccessPanel = '<div class="quick-access-panel" ondrop="drop(event)" ondragover="allowDrop(event)"><h3>Quick Access</h2> </div>';
-var removePanel = '<div class="remove-panel" ondrop="removeItem(event)" ondragover="allowDrop(event)">REMOVE FROM QUICK ACCESS</div>'
- 
-//side panel
-var explorerLeft = $(".explorer-left");
-explorerLeft.append(quickAccessPanel);
-explorerLeft.append(removePanel);
-
-quickAccessPanel = $('.quick-access-panel');
-var quickAccessList = document.createElement("div");
-quickAccessList.className = "list-group";
-quickAccessList.className = "quick-access-list";
-quickAccessPanel.append(quickAccessList);
-
-// Check if any items saved in quick access and populate list
-if (localStorage.quickAccessJson != null) {
-    var items = JSON.parse(localStorage.quickAccessJson);
-
-    items.forEach(function(element) {
-        var listItem = document.createElement("a");
-        listItem.className = "list-group-item";
-        listItem.setAttribute("href", element);
-        listItem.setAttribute("ondragstart", "showRemove()");
-        listItem.setAttribute("ondragend", "hideRemove()");
-
-        var dirName = element.split("/");
-        if(dirName[dirName.length-1].length == 0){
-            //it is a folder
-            listItem.text = decodeURIComponent(dirName[dirName.length - 2]);
-        }else{
-            //it is a file
-            listItem.text = decodeURIComponent(dirName[dirName.length - 1]);
-        }
-        listItem.id = element;
-        quickAccessList.append(listItem);
-    }, this);
-}
-
-//initialise all action buttons {sort, icon, list , etc)}
-var buttonLeftArrow = '<button onclick="javascript: window.history.back()" type="button" class="btn btn-default"> < </button>';
-var buttonRightArrow = '<button onclick="javascript: window.history.forward()" type="button" class="btn btn-default"> > </button>';
-var buttonList = '<button id="list-button" type="button" class="btn btn-default">List</button>';
-var buttonIcons = '<button id="icon-button" type="button" class="btn btn-default">Icons</button>';
-
-var sortButtons = "<button id='namesort-button' type='button' class='btn btn-default'> Name Sort </button><button id='sizesort-button' type='button' class='btn btn-default'> Size Sort </button><button id='datesort-button' type='button' class='btn btn-default'> Date Sort </button>";
-$(".explorer-right").prepend(buttonLeftArrow + buttonRightArrow + buttonList + buttonIcons + "   Sort By: " + sortButtons);
+/**
+ * viewtoggle.js
+ * 
+ * Functionality and styling for icon/list views
+ */
 
 //Adding icons to file entries based on their file extension
 var pdfImgUrl = chrome.extension.getURL("styles/img/pdf.png");
@@ -188,6 +43,8 @@ $("a.file").each(function(){
 //function for list view. Uses session storage to persist view type through navigation. (session storage only persist until user closes the tab)
 //The function hides list view when icon view is selected and vice versa. 
 $("#list-button").click(function(){
+	$("#list-button").css({"background-color": "#e7e7e7 "});
+	$("#icon-button").css({"background-color": ""});
     console.log("list view");
     sessionStorage.viewType = "list";
     
@@ -204,6 +61,8 @@ $("#list-button").click(function(){
 //hides list view and display icon view. 
 //icon view is displayed by collecting table data from list view and converting it into document objects. The objects are then translanted into icon views. 
 $("#icon-button").click(function(){
+	$("#icon-button").css({"background-color": "#e7e7e7 "});
+	$("#list-button").css({"background-color": ""});
     console.log("icon view");
     sessionStorage.viewType = "icon";
     //hide table view
@@ -258,7 +117,6 @@ $("#icon-button").click(function(){
     updateString += "</div>";
     console.log(updateString);
     $("#icon-container").html(updateString);
-    
 });
 
 //uses the default javascript:tablesort function. This act as a middle-man to silent-click the respective theader.
@@ -343,4 +201,3 @@ if(sessionStorage.viewType === "undefined"){
 } else if(sessionStorage.viewType === "icon"){
     $("#icon-button").click();
 }
->>>>>>> master

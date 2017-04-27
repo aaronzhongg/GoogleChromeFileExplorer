@@ -1,3 +1,26 @@
+/**
+ * dragdrop.js
+ * 
+ * Injects html elements for explorer-left
+ * Functionality and styling for quick-access
+ */
+
+var quickAccessPanel = '<div class="quick-access-panel" ondrop="drop(event)" ondragover="allowDrop(event)"><h3>Quick Access</h2> </div>';
+var removePanel = '<div class="remove-panel" ondrop="removeItem(event)" ondragover="allowDrop(event)">REMOVE FROM QUICK ACCESS</div>'
+ 
+//side panel
+var explorerLeft = $(".explorer-left");
+explorerLeft.append(quickAccessPanel);
+explorerLeft.append(removePanel);
+
+quickAccessPanel = $('.quick-access-panel');
+var quickAccessList = document.createElement("div");
+quickAccessList.className = "list-group";
+quickAccessList.className = "quick-access-list";
+quickAccessPanel.append(quickAccessList);
+
+refreshQuickAccess();
+
 function allowDrop(ev) {
     ev.preventDefault();
 }

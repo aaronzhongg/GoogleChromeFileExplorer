@@ -28,8 +28,10 @@ $("table").wrap('<div class="explorer-right"></div>');
 $("h1").wrap('');
 $(".explorer").wrap('<div class="exploer-container"></div>');
 $(".exploer-container").wrap('<div class="container"></div>');
+var path_name = $('#header').text();
 $("#header").remove();
-$(".container").prepend('<header><h1><b>Chrome File Exploer</b></h1></header>')
+$(".explorer").prepend('<div class="topbar"></div>');
+$(".explorer").prepend('<div class="title"><h1><b>'+ path_name+ '</b></h1></div>');
 $("table").wrap('<div id="main-container"></div>');
 $("#main-container").append("<div id='icon-container'> </div>");
 $(".explorer").prepend('<div class="explorer-left"></div>');
@@ -46,4 +48,5 @@ var buttonRightArrow = '<button id="forward-button" onclick="javascript: window.
 var buttonList = '<button id="list-button" type="button" class="btn"><img src= "'+ listImgUrl +'" width="24" height="24" alt="backward" /></button>';
 var buttonIcons = '<button id="icon-button" type="button" class="btn"><img src= "'+ iconImgUrl +'" width="24" height="24" alt="backward" /></button>';
 var sortButtons = "<button id='namesort-button' type='button' class='btn'> Name </button><button id='sizesort-button' type='button' class='btn'> Size </button><button id='datesort-button' type='button' class='btn'> Date </button>";
-$(".explorer-right").prepend(buttonLeftArrow + buttonRightArrow + buttonList + buttonIcons + "   Sort By: " + sortButtons);
+var pathfield = '<input type="text" id="path_field" placeholder=" ' + path_name +'" disabled>';
+$(".topbar").prepend(buttonLeftArrow + buttonRightArrow + pathfield + buttonList + buttonIcons + "   Sort By: " + sortButtons);

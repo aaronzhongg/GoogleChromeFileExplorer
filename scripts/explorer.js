@@ -30,11 +30,11 @@ $(".explorer").wrap('<div class="exploer-container"></div>');
 $(".exploer-container").wrap('<div class="container"></div>');
 var path_name = $('#header').text();
 $("#header").remove();
+$(".explorer").prepend('<div class="explorer-left"></div>');
 $(".explorer").prepend('<div class="topbar"></div>');
 $(".explorer").prepend('<div class="title"><h1><b>'+ path_name+ '</b></h1></div>');
 $("table").wrap('<div id="main-container"></div>');
 $("#main-container").append("<div id='icon-container'> </div>");
-$(".explorer").prepend('<div class="explorer-left"></div>');
 
 //Get button icon urls
 var backwardImgUrl = chrome.extension.getURL("styles/img/backward.png");

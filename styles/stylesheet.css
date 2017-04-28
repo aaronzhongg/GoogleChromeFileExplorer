@@ -93,38 +93,27 @@ body {
 	
 }
 
-.container header{
-	height: 50px;
-	padding-top: 5px;
-	padding-right: 5px;
-	padding-bottom: 5px;
-	padding-left: 5px;	
-}
-
 .exploer-container {
-	min-height: 600px;
+	height: 100%;
 	float: left;
 	width: 100%;
 	margin: 5px;
+	overflow:visible;
 	background-color:#eeeeee;
 	background: -webkit-linear-gradient(#fff 80%, #eee);
 	border: 1px solid #eee;
 	border-radius: 7px;
 	box-shadow: 0 -2px 3px #ddd inset, 0 2px 3px #ddd inset;
-	overflow: visible;
+	overflow: hidden;
 	box-shadow: 5px 5px 3px #A0A0A0;
 	position: relative;
 }
 
 .explorer-left {
-	height: 100%;
-	position: absolute;
-	left: 0;
-    top: 100px;
+	height: 700px;
 	width: 18%;
 	float: left;
 	overflow-y: auto;
-
 	margin-right: 10px;
 	border-radius: 7px;
 	border-right-width: 1px;
@@ -156,12 +145,12 @@ body {
 }
 
 .explorer-right {
-	height: 100%;
-	margin-left: 19%;
-	min-width: 80%;
+	height: 700px;
+	width: 80%;
 	float: left;
 	background-color:transparent;
-	overflow: scroll;
+	overflow-y: scroll;
+	overflow-x: auto;
 }
 
 .exploer-right header{

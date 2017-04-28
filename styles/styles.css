@@ -25,7 +25,7 @@
 
 .explorer-right {
 	min-height: 600px;
-	width: 78%;
+	min-width: 78%;
 	float: left;
 	overflow-y: auto;
 	overflow-x: hidden;

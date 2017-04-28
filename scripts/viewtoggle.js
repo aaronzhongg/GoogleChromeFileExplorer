@@ -44,7 +44,7 @@ $("a.file").each(function(){
 //The function hides list view when icon view is selected and vice versa. 
 $("#list-button").click(function(){
 	$("#list-button").css({"background-color": "#e7e7e7 "});
-	$("#icon-button").css({"background-color": "#fff"});
+	$("#icon-button").css({"background-color": "#fff "});
     console.log("list view");
     sessionStorage.viewType = "list";
     
@@ -61,7 +61,7 @@ $("#list-button").click(function(){
 //hides list view and display icon view. 
 //icon view is displayed by collecting table data from list view and converting it into document objects. The objects are then translanted into icon views. 
 $("#icon-button").click(function(){
-	$("#icon-button").css({"background-color": "#e7e7e7 "});
+	$("#icon-button").css({"background-color": "#e7e7e7"});
 	$("#list-button").css({"background-color": "#fff"});
     console.log("icon view");
     sessionStorage.viewType = "icon";

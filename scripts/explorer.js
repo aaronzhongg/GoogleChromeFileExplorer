@@ -32,9 +32,12 @@ var path_name = $('#header').text();
 $("#header").remove();
 $(".explorer").prepend('<div class="explorer-left"></div>');
 $(".explorer").prepend('<div class="topbar"></div>');
-$(".explorer").prepend('<div class="title"><h1><b>'+ path_name+ '</b></h1></div>');
+$(".explorer").prepend('<div class="title"><h1><b>Chrome File Exploer</b></h1></div>');
 $("table").wrap('<div id="main-container"></div>');
 $("#main-container").append("<div id='icon-container'> </div>");
+
+var imgURL = chrome.extension.getURL("styles/img/bg-blur.jpg");
+$("body").css({'background-image': 'url:('+ imgURL + ') !important'});
 
 //Get button icon urls
 var backwardImgUrl = chrome.extension.getURL("styles/img/backward.png");

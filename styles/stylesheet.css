@@ -10,16 +10,16 @@ body {
 }
 
 .title h1 {
-	font-family: "Open Sans";
+	font-family:  Arial, Helvetica, sans-serif;
 	font-size: 15px;
 	margin: 0 1em 0 0;
 	color: #000;
 	border:none;
-	-webkit-text-stroke: 1px #9D9D9D;
 }
 
 .btn {
-	border: 2px solid #e7e7e7 !important;
+	border: 2px solid #A8A8A8 !important;
+	background-color: #fff !important;
 	cursor: pointer;
 }
 
@@ -35,6 +35,7 @@ body {
 	-webkit-border-radius: 5px;
 	margin-right: 10%;
 	background:none;
+	background-color:#fff !important;
 }
 
 #backward-button{
@@ -54,14 +55,14 @@ body {
 #list-button{
 	border-top-left-radius: 10%;
 	border-bottom-left-radius: 10%;
-	background: #e7e7e7 ;
+	background-color: #e7e7e7;
 }
 
 #icon-button{
 	border-top-right-radius: 10%;
 	border-bottom-right-radius: 10%;
 	margin-right: 20px;
-	background: none ;
+	background: #fff ;
 }
 
 #namesort-button{
@@ -79,7 +80,8 @@ body {
 .topbar{
 	float:left;
 	width: 100%;
-	height:100px;
+	height:60px;
+	background-color:#A8A8A8;
 }
 
 
@@ -90,7 +92,6 @@ body {
 	margin-right: 10%;
 	margin-bottom: 15px;
 	margin-left: 10%!important;
-	
 }
 
 .exploer-container {
@@ -99,23 +100,27 @@ body {
 	width: 100%;
 	margin: 5px;
 	overflow:visible;
-	background-color:#eeeeee;
 	background: -webkit-linear-gradient(#fff 80%, #eee);
-	border: 1px solid #eee;
+	border: 1px solid #D7D7D7;
 	border-radius: 7px;
 	box-shadow: 0 -2px 3px #ddd inset, 0 2px 3px #ddd inset;
 	overflow: hidden;
 	box-shadow: 5px 5px 3px #A0A0A0;
 	position: relative;
+	background-color:#A8A8A8 !important;
+}
+
+.explorer{
+	background-color:#A8A8A8 !important;
 }
 
 .explorer-left {
-	height: 700px;
+	height: 800px;
 	width: 18%;
 	float: left;
 	overflow-y: auto;
-	margin-right: 10px;
 	border-radius: 7px;
+	border-top-left-radius: 0 !important;
 	border-right-width: 1px;
 	border-right-style: solid;
 	border-right-color: #A8A8A8;
@@ -145,9 +150,10 @@ body {
 }
 
 .explorer-right {
-	height: 700px;
-	width: 80%;
+	height: 800px;
+	width: 82%;
 	float: left;
+	padding-left: 10px;
 	background-color:transparent;
 	overflow-y: scroll;
 	overflow-x: auto;

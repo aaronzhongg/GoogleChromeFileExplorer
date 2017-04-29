@@ -5,6 +5,8 @@
  * Functionality and styling for quick-access
  */
 
+console.log("quickaccess.js injected");
+
 var quickAccessPanel = '<div class="quick-access-panel" ondrop="drop(event)" ondragover="allowDrop(event)"><h4 class="quick-access-heading">Quick Access</h4> </div>';
 var removePanel = '<div class="remove-panel" ondrop="removeItem(event)" ondragover="allowDrop(event)">REMOVE FROM QUICK ACCESS</div>'
  
@@ -52,6 +54,7 @@ function drop(ev) {
 
 // Re-populate items in quick access panel after adding or remove items
 function refreshQuickAccess() {
+    // localStorage.clear();
     var quickAccessList = $(".quick-access-list");
     quickAccessList.empty();
     if (localStorage.quickAccessJson != null) {

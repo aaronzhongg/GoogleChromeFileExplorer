@@ -63,6 +63,7 @@ function refreshQuickAccess() {
         items.forEach(function(element) {
             var listItem = document.createElement("a");
             listItem.className = "list-group-item";
+            listItem.style["word-wrap"] = "break-word";
             listItem.setAttribute("href", element);
             listItem.setAttribute("ondragstart", "showRemove()");
             listItem.setAttribute("ondragend", "hideRemove()");

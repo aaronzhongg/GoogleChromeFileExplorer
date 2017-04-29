@@ -26,13 +26,13 @@ $("table").attr("id", "myTable"); //change name to something meaningful
 $("table").wrap('<div class="explorer"></div>');
 $("table").wrap('<div class="explorer-right"></div>');
 $("h1").wrap('');
-$(".explorer").wrap('<div class="exploer-container"></div>');
-$(".exploer-container").wrap('<div class="container"></div>');
+$(".explorer").wrap('<div class="explorer-container"></div>');
+$(".explorer-container").wrap('<div class="container"></div>');
 var path_name = $('#header').text();
 $("#header").remove();
 $(".explorer").prepend('<div class="explorer-left"></div>');
 $(".explorer").prepend('<div class="topbar"></div>');
-$(".explorer").prepend('<div class="title"><h1><b>Chrome File Exploer</b></h1></div>');
+$(".explorer").prepend('<div class="title"><h1><b>Chrome File Explorer</b></h1></div>');
 $("table").wrap('<div id="main-container"></div>');
 $("#main-container").append("<div id='icon-container'> </div>");
 

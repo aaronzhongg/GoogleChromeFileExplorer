@@ -94,7 +94,7 @@ body {
 	margin-left: 10%!important;
 }
 
-.exploer-container {
+.explorer-container {
 	height: 100%;
 	float: left;
 	width: 100%;
@@ -155,26 +155,26 @@ body {
 	overflow-x: auto;
 }
 
-.exploer-right header{
+.explorer-right header{
 	padding-right: 5px;
 	text-align: right;
 }
 
-.exploer-right a:link{
+.explorer-right a:link{
 	color: #000;
 	text-decoration: none;
 	font-family: Verdana, Geneva, sans-serif;
 	font-size: 18px;
 }
 
-.exploer-right a:visited{
+.explorer-right a:visited{
 	color: #000;
 	text-decoration: none;
 	font-family: Verdana, Geneva, sans-serif;
 	font-size: 18px;
 }
 
-.exploer-right a:hover{
+.explorer-right a:hover{
 	color: #000;
 	text-decoration: underline;
 	font-family: Verdana, Geneva, sans-serif;

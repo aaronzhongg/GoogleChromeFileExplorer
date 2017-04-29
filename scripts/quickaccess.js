@@ -21,6 +21,7 @@ quickAccessList.className = "list-group";
 quickAccessList.className = "quick-access-list";
 quickAccessPanel.append(quickAccessList);
 
+
 refreshQuickAccess();
 
 function allowDrop(ev) {
@@ -43,8 +44,8 @@ function drop(ev) {
     } else {
         quickAccessItems = [];
     }
-    
-    if (!quickAccessItems.includes(data) && data != "file:///"){
+    //Check if the item dragged is a valid file link and if it's already in the quick access
+    if (!quickAccessItems.includes(data) && data.substring(0, 8) == "file:///"){
         quickAccessItems.push(data); 
         localStorage.quickAccessJson = JSON.stringify(quickAccessItems);
         
@@ -63,7 +64,6 @@ function refreshQuickAccess() {
         items.forEach(function(element) {
             var listItem = document.createElement("a");
             listItem.className = "list-group-item";
-            listItem.style["word-wrap"] = "break-word";
             listItem.setAttribute("href", element);
             listItem.setAttribute("ondragstart", "showRemove()");
             listItem.setAttribute("ondragend", "hideRemove()");
@@ -76,7 +76,6 @@ function refreshQuickAccess() {
                 //it is a file
                 listItem.text = decodeURIComponent(dirName[dirName.length - 1]);
             }
-            
             listItem.id = element;
             quickAccessList.append(listItem);
         }, this);

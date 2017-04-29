@@ -226,6 +226,10 @@ body {
 	text-align: center;
 	font-weight: bold;
 }
+
+.list-group-item{
+    word-wrap : break-word;
+}
 .remove-panel {
 	border: 1px dashed black;
 	background: #ff5050; 

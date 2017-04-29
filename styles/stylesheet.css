@@ -1,7 +1,7 @@
 @charset "utf-8";
 /* CSS Document */
 body {
-	background-color: #D7D7D7 !important;
+	background-color: floralwhite !important;
 }
 
 .title{
@@ -119,16 +119,12 @@ body {
 	width: 18%;
 	float: left;
 	overflow-y: auto;
-	border-radius: 7px;
-	border-top-left-radius: 0 !important;
+	/*border-radius: 7px;*/
+	/*border-top-left-radius: 0 !important;*/
 	border-right-width: 1px;
 	border-right-style: solid;
 	border-right-color: #A8A8A8;
-	background-color: #9CDEDE;
-	padding-top: 15px;
-	padding-right: 5px;
-	padding-bottom: 5px;
-	padding-left: 5px;
+	background-color: #D7D7D7;
 }
 
 .explorer-left a:link{
@@ -221,18 +217,25 @@ body {
 }
 
 .quick-access-panel {
-	min-height: 300px;
+	height: 90%;
 	width: 100%;
+	overflow-y: auto;
 }
 
+.quick-access-heading {
+	text-align: center;
+	font-weight: bold;
+}
 .remove-panel {
 	border: 1px dashed black;
-	background: #E03C31; 
+	background: #ff5050; 
 	color: white;
 	padding: 25px; 
-	margin: 25px 0; 
+	height: 10%;
 	display: none;
 	text-align: center;
+	font-size: 12px;
+	font-weight: bolder;
 }
 
 .detailsColumn {

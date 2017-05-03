@@ -31,11 +31,13 @@
     "styles/img/img-icon.png",
     "styles/img/mp3-icon.png",
     "styles/img/pdf-icon.png",
+    "styles/img/txt-icon.png",
     "styles/img/up-folder-icon.png",
-	"styles/img/forward.png",
-	"styles/img/backward.png",
-	"styles/img/list.png",
-	"styles/img/icon.png",
-	"styles/img/bg-blur.jpg"
+	  "styles/img/forward.png",
+	  "styles/img/backward.png",
+	  "styles/img/list.png",
+	  "styles/img/icon.png",
+	  "styles/img/bg-blur.jpg"
+
   ]
 }

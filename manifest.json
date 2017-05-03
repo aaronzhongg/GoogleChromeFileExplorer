@@ -8,8 +8,8 @@
   "content_scripts": [
     { 
       "matches": ["file:///*"],
-      "js": [ "scripts/jquery-3.2.1.min.js", "scripts/explorer.js", "scripts/bootstrap.min.js"],
-      "css": ["styles/styles.css", "styles/bootstrap.min.css"]
+      "js": [ "scripts/jquery-3.2.1.min.js",  "scripts/bootstrap.min.js", "scripts/explorer.js", "scripts/viewtoggle.js"],
+      "css": ["styles/stylesheet.css", "styles/bootstrap.min.css"]
     }
   ],
   "browser_action": {
@@ -21,16 +21,21 @@
     "file:///*"
   ],
   "web_accessible_resources": [
+    "scripts/quickaccess.js",
     "styles/img/pdf.png",
     "styles/img/txt.png",
     "styles/img/mp3.png",
     "styles/img/img.png",
-    "scripts/dragdrop.js",
     "styles/img/folder-icon.png",
     "styles/img/blank-icon.png",
     "styles/img/img-icon.png",
     "styles/img/mp3-icon.png",
     "styles/img/pdf-icon.png",
-    "styles/img/up-folder-icon.png"
+    "styles/img/up-folder-icon.png",
+	"styles/img/forward.png",
+	"styles/img/backward.png",
+	"styles/img/list.png",
+	"styles/img/icon.png",
+	"styles/img/bg-blur.jpg"
   ]
 }

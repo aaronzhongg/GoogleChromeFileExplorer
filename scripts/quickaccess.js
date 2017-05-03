@@ -1,3 +1,29 @@
+/**
+ * dragdrop.js
+ * 
+ * Injects html elements for explorer-left
+ * Functionality and styling for quick-access
+ */
+
+console.log("quickaccess.js injected");
+
+var quickAccessPanel = '<div class="quick-access-panel" ondrop="drop(event)" ondragover="allowDrop(event)"><h4 class="quick-access-heading">Quick Access</h4> </div>';
+var removePanel = '<div class="remove-panel" ondrop="removeItem(event)" ondragover="allowDrop(event)">REMOVE FROM QUICK ACCESS</div>'
+ 
+//side panel
+var explorerLeft = $(".explorer-left");
+explorerLeft.append(quickAccessPanel);
+explorerLeft.append(removePanel);
+
+quickAccessPanel = $('.quick-access-panel');
+var quickAccessList = document.createElement("div");
+quickAccessList.className = "list-group";
+quickAccessList.className = "quick-access-list";
+quickAccessPanel.append(quickAccessList);
+
+
+refreshQuickAccess();
+
 function allowDrop(ev) {
     ev.preventDefault();
 }
@@ -18,8 +44,8 @@ function drop(ev) {
     } else {
         quickAccessItems = [];
     }
-    
-    if (!quickAccessItems.includes(data) && data != "file:///"){
+    //Check if the item dragged is a valid file link and if it's already in the quick access
+    if (!quickAccessItems.includes(data) && data.substring(0, 8) == "file:///"){
         quickAccessItems.push(data); 
         localStorage.quickAccessJson = JSON.stringify(quickAccessItems);
         
@@ -29,6 +55,7 @@ function drop(ev) {
 
 // Re-populate items in quick access panel after adding or remove items
 function refreshQuickAccess() {
+    // localStorage.clear();
     var quickAccessList = $(".quick-access-list");
     quickAccessList.empty();
     if (localStorage.quickAccessJson != null) {
@@ -49,7 +76,6 @@ function refreshQuickAccess() {
                 //it is a file
                 listItem.text = decodeURIComponent(dirName[dirName.length - 1]);
             }
-            
             listItem.id = element;
             quickAccessList.append(listItem);
         }, this);

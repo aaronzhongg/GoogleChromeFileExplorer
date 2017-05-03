@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>SOFEENG 750</title>
+<link rel="stylesheet" href="css/stylesheet.css" >
+</head>
+
+<body>
+<div id="container">
+	<header>
+    	<h1>Chrome File Exploer</h1>
+    </header>
+    
+    <!-- Display directory path -->
+    <div id="path">
+    	<button type="button" class="navigation" ><img src="src/backward.png" width="24" height="24" alt="backward" /></button>
+        &nbsp;
+        <button type="button" class="navigation"><img src="src/forward.png" width="24" height="24" alt="forward" /></button>
+        &nbsp;
+		<input type="text" id="path_field" placeholder=" path">
+        <input type="text" id="search_field" placeholder=" search">
+	</div>
+    
+    <div id="exploer_container">
+    	
+    	<section id="exploer">
+            <!-- Quick Access -->
+          <div id="exploer_left">
+                <details>
+                    <summary>&nbsp;<a href="#"><img src="src/icon.png" width="20" height="20" />&nbsp;Folder1</a></summary>
+                        <ul>
+                            <details><summary>&nbsp;<a href="#"><img src="src/icon.png" width="20" height="20" />&nbsp;Folder2</a></summary></details>
+                            <details><summary><a href="#">Folder3</a></summary></details>
+                            <details><summary><a href="#">Folder4</a></summary></details>
+                        </ul>
+                </details>
+          </div>
+          
+          <!-- File Exploer -->
+          <div id="exploer_right">
+          	<header>
+                <lable><a href="#" id="list">List</a> / <a href="#" id="icon">Icon</a></lable>
+                <lable>&nbsp;&nbsp;</lable>
+            </header>
+            
+                
+            </div>
+          </div>
+   	  </section>
+    </div>
+    <footer>
+    </footer>
+</div>
+</body>
+</html>

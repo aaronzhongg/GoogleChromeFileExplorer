@@ -17,6 +17,7 @@ var mp3ImgUrl = chrome.extension.getURL("styles/img/mp3-icon.png");
 var imgImg256Url = chrome.extension.getURL("styles/img/img-icon.png");
 var upFolderUrl = chrome.extension.getURL("styles/img/up-folder-icon.png");
 var pdfImg256Url = chrome.extension.getURL("styles/img/pdf-icon.png");
+var txtImg256Url = chrome.extension.getURL("styles/img/txt-icon.png");
 
 //Inserting icons for list view based on file type
 $("a.file").each(function(){
@@ -102,6 +103,9 @@ $("#icon-button").click(function(){
                     break;
                 case "pdf":
                     icon += "<img class='icon-img' src='" + pdfImg256Url +"'/>";
+                    break;
+                case "txt":
+                    icon += "<img class='icon-img' src='" + txtImg256Url +"'/>";
                     break;
                 case "parent_directory":
                     icon += "<img class='icon-img' src='" + upFolderUrl +"'/>";

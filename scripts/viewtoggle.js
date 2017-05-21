@@ -151,18 +151,18 @@ $("#datesort-button").click(function(){
 function convertToDocumentArray(){
     documentArrayObject = []; //reset array
     var size=document.getElementById("tbody").rows.length;
-      for(i=0; i<size; i++){
-        var row=document.getElementById("tbody").rows[i];
-        var documentObject = {
-            'documentName' : $(row.cells[0]).children("a").html(),
-            'documentLink' : $(row.cells[0]).children("a").attr("href"),
-            'documentSize' : row.cells[1].innerHTML,
-            'documentDateModified' : row.cells[2].innerHTML
-        }
-        console.log("Created object. Now pushing onto array stack...");
-        documentArrayObject.push(documentObject);
-        //var i = {Name:row[0], Config.Msi:row[0], Size:row[0], Date-Modified:row[0]};
-      }
+        for(i=0; i<size; i++){
+            var row=document.getElementById("tbody").rows[i];
+            var documentObject = {
+                'documentName' : $(row.cells[0]).children("a").html(),
+                'documentLink' : $(row.cells[0]).children("a").attr("href"),
+                'documentSize' : row.cells[1].innerHTML,
+                'documentDateModified' : row.cells[2].innerHTML
+            }
+            console.log("Created object. Now pushing onto array stack...");
+            documentArrayObject.push(documentObject);
+            //var i = {Name:row[0], Config.Msi:row[0], Size:row[0], Date-Modified:row[0]};
+         }
 }
 
 function checkExtension(documentName){

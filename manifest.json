@@ -2,7 +2,7 @@
   "manifest_version": 2,
 
   "name": "Chrome Based File Explorer",
-  "description": "This extension will allow access to a part of the local filesystem vis Chrome",
+  "description": "This extension will allow access to a part of the local filesystem via Chrome",
   "version": "1.0",
 
   "content_scripts": [

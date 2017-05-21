@@ -11,7 +11,8 @@ var documentArrayObject = [];
 
 //Import jquery into the page
 var jqueryScript = document.createElement("script");
-jqueryScript.src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js";
+//jqueryScript.src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js";
+jqueryScript.src = chrome.extension.getURL("scripts/jquery-3.2.1.min.js")
 $("head").append(jqueryScript);
 
 //Import dragdrop script into the page

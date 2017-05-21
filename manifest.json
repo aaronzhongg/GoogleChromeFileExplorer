@@ -37,7 +37,8 @@
 	  "styles/img/backward.png",
 	  "styles/img/list.png",
 	  "styles/img/icon.png",
-	  "styles/img/bg-blur.jpg"
+	  "styles/img/bg-blur.jpg",
+    "scripts/jquery-3.2.1.min.js"
 
   ]
 }
